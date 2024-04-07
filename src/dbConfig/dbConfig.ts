@@ -1,3 +1,6 @@
+//Connecting the project with the databse mongoDB
+//This step is most important 
+
 import mongoose from "mongoose";
 
 export async function connect(){
@@ -13,7 +16,9 @@ export async function connect(){
             console.log("Database connection is failed. Make sure to connect the database. " + err);
             process.exit();
         })
-    } catch (error) {
+    } 
+    
+    catch (error) {
         console.log("Something went Wrong");
         console.log(error);
     }
