@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 
 export default function loginPage(){
 
+    const router = useRouter();
+
     const [user, setUser] = React.useState({
         email: "",
         password: ""
@@ -28,8 +30,10 @@ export default function loginPage(){
         try {
 
             setLoading(true);
-            const response = await axios.put("/api/users/login");
+            const response = await axios.post("/api/users/login", user);
             console.log("User Logined Successfully", response.data);
+            toast.success("Login Successful");
+            router.push("/profile");
             
         } catch (error: any) {
 
@@ -50,16 +54,17 @@ export default function loginPage(){
                     <h1>{loading ? "Processing...." : "Login"}</h1>
                     <div className="flex flex-col items-center justify-center p-3">
                         <label htmlFor="email" className="pt-3">email</label>
-                        <input className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600 font-sans font-light"
+                        <input className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600 font-sans font-light text-black"
                             id="email"
                             type="text"
                             value={user.email}
                             placeholder="email"
+                            autoComplete="email"
                             onChange={(e) => setUser({...user, email: e.target.value})}
                         />
                         
                         <label htmlFor="password" className="pt-3">password</label>
-                        <input className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600 font-sans font-light"
+                        <input className="p-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-600 font-sans font-light text-black"
                             id="password"
                             type="text"
                             value={user.password}

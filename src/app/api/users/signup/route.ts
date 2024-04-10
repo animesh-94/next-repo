@@ -1,12 +1,12 @@
-import { connect } from "@/dbConfig/dbConfig";
+import   connect   from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
-import { error } from "console";
+import  error  from "console";
 const bcryptjs = require("bcryptjs");
 
 connect();
 
-export async function POST(request: NextRequest){
+export default async function POST(request: NextRequest){
     try {
 
         //getting the following info from the user 

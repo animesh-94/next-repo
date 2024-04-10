@@ -57,6 +57,7 @@ export default function SignUpPage(){
                             type="text"
                             value={user.username}
                             placeholder="username"
+                            autoComplete="username"
                             onChange={(e) => setUser({...user, username: e.target.value})}
                         />
                         
@@ -66,6 +67,7 @@ export default function SignUpPage(){
                             type="text"
                             value={user.email}
                             placeholder="email"
+                            autoComplete="email"
                             onChange={(e) => setUser({...user, email: e.target.value})}
                         />
                         
