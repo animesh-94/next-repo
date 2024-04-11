@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 
 connect();
 
-export default async function POST(request: NextRequest){
+export async function POST(request: NextRequest){
     try {
         
         const reqBody = await request.json();
